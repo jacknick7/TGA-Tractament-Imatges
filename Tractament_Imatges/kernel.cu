@@ -62,11 +62,11 @@ int main(int argc, char ** argv) {
 	unsigned char * h_pixels = NULL;
 	unsigned char * d_pixels = NULL;
 
-	char * srcPath = "/ Developer /GPU Computing /C/src / GaussianBlur /image / wallpaper2.pgm";
-	char * h_ResultPath = "/ Developer /GPU Computing /C/src /GaussianBlur / output / h_wallpaper2.pgm ";
-	char * d_ResultPath = "/ Developer /GPU Computing /C/src /GaussianBlur / output / d_wallpaper2.pgm ";
+	char * srcPath = "./Image.pgm";
+	char * h_ResultPath = "./CPU-Image.pgm";
+	char * d_ResultPath = "./GPU-Image.pgm";
 	
-	cutLoadPGMub(srcPath, &h_pixels, &width, &height);
+	cutLoadPGMub(srcPath, &h_pixels, &width, &height); // Sale Mal
 	
 	int ImageSize = sizeof(unsigned char) * width * height;
 
@@ -88,7 +88,7 @@ int main(int argc, char ** argv) {
 	double interval = difference / (double)CLOCKS_PER_SEC;
 	printf("CPU execution time = %f ms\n", interval * 1000);
 
-	cutSavePGMub(h_ResultPath, h_resultPixels, width, height); // Sale Mal
+	cutSavePGMub(h_ResultPath, h_resultPixels, width, height);
 
 	/* **** CPU **** */
 	
